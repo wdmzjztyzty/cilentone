@@ -12,8 +12,7 @@ import com.github.sarxos.webcam.ds.buildin.natives.OpenIMAJGrabber;
 
 public class LocalView {
 	
-	public static void main(String[] args) {
-			
+	public static void main(String[] args) {			
 		/**
 		 * This example show how to use native OpenIMAJ API to capture raw bytes
 		 * data as byte[] array. It also calculates current FPS.
@@ -48,7 +47,7 @@ public class LocalView {
 				/* Prepare the date to be sent in a text friendly format. */
 				byte[] base64_image = Base64.encodeBase64(compressed_image);
 				
-				os.writeShort(base64_image.length);
+				os.writeInt(base64_image.length);
 				os.write(base64_image);
 				os.flush();
 				
@@ -59,5 +58,5 @@ public class LocalView {
 			e.printStackTrace();			
 		}
 	}
-	
+
 }
